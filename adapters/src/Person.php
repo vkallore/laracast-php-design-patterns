@@ -1,14 +1,13 @@
 <?php
 
-use Acme\Book;
+use Acme\BookInterface;
 
 class Person
 {
-    public function read($book)
+    public function read(BookInterface $book)
     {
         $book->open();
+        echo "\n";
         $book->turnPage();
     }
 }
-
-(new Person)->read(new Book);

@@ -1,7 +1,7 @@
 <?php
 namespace Acme;
 
-class Book
+class Book implements BookInterface
 {
     public function open()
     {
