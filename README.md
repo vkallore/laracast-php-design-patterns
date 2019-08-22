@@ -13,3 +13,9 @@ In software engineering, the adapter pattern is a software design pattern (also 
 An adaptor allows you to translate one interface for use with another.
 
 [Example](./adapters)
+
+## Strategy Pattern
+
+In computer programming, the _strategy pattern_ (also known as the policy pattern) is a software design pattern that enables an algorithm’s behavior to be selected at runtime
+
+[Example](./strategy)
