@@ -29,10 +29,12 @@ class PayU implements Payments
     }
 }
 
-class Cart {
-    public function checkout($ordereId, Payments $paymentGw)
+class Cart
+{
+    public function checkout($ordereId, Payments $paymentGw = null)
     {
         echo "Order ID: {$ordereId} \n";
+        $paymentGw = $paymentGw?:new CcAvenue();
         $paymentGw->initiate();
     }
 }
@@ -43,7 +45,7 @@ echo "Select Payment Gateway\n
 3) PayU
 ";
 
-$handle = fopen ("php://stdin","r");
+$handle = fopen("php://stdin", "r");
 $line = fgets($handle);
 $line = trim($line);
 switch ($line) {
@@ -63,13 +65,9 @@ switch ($line) {
         break;
 }
 
-if(empty($paymentGw))
-{
-    die("Invalid Payment Gateway selected!\n");
-}
+echo "Wrong Payment Gateway selected, proceeding with default!\n";
 
 $cart = new Cart();
-
 
 $cart->checkout(uniqid(), $paymentGw);
 echo "\n";
